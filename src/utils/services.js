@@ -1,5 +1,14 @@
+import axios from 'axios';
+
 const getServices = async () => {
-  // TODO: Return list of services from "/services" endpoint
+    return axios.get('/services').then(res => res.data);
 };
 
-export { getServices };
+const getAppointmentsByService = async (id) => {
+    return axios.get(`/appointments/${id}`).then(res => res.data);
+};
+
+export {
+    getServices,
+    getAppointmentsByService
+};
